@@ -1,0 +1,52 @@
+# Original Code: R hypoxia by Natalie Davidson
+# Edited , modified and maintaining by Alva Rani James (Updated as of Feb 7.02.19)
+# Added 2 features, 1. cancer type of user's interest
+# 2. Added the Bayes score to Hypoxia score matrix. Line 224 - 2240 Alva: Added new lines to bind the bayes with the Hypoxia score, previously Natalie did Bayes Score, but it was not binded
+# The script is useable from one sample to any number of sample of interest now, previously the requirement was minimum of 2
+# Commented lines 301-313 Which is ROCR sensitivity and specificity
+
+
+## The major changes there are in the R script,
+
+ The script `Project_new_HIF.R` is changed a lot for the current requirement
+
+## Added  new features and functionality for visualization
+
+1. cancer type of user's interest This is added in Set_R_paths.R
+
+ 2. Added the Bayes score to Hypoxia score matrix. 
+
+	3. Removed these lines 224 - 240:  Additionally, I added a new function [Lines 246-265, called as `classify_bayes_score`], outside `get_prob_hypoxic`, where this was defined previously. By doing so now in the results directory there are file names as New_patient_hypoxia_Bayes_score.tsv, with both Bayes and Hypoxia score, which was not the case with the previous legacy script.
+
+3. The plotter function for comparative visualization of the backgrounds and visualize where the Hypoxia score falls within the background, for a user given sample.
+
+The script is useable from one sample to any number of sample of interest now, previously the requirement was minimum of 2
+Commented lines 301-313 Which is for calculating sensitivity and specificity library ROCR. 
+
+
+As of Feburauray 15th, the parameters previously used for alignment using STAR
+aligner is changed to NEXUS (defined) parameters in order to manintain
+consistancy between workflows and therefore derive same outputs.
+The following are major changes.
+	--twopassMode Basic  (used by us, not by them)
+
+	[I prefer twopassMode on, but for reproduction we need to remove it]
+
+	--readFilesCommand zcat (used by them) / --readFilesCommand gunzip   -c  (used by us)
+	 [we should also use zcat]
+
+	--limitSjdbInsertNsj 2000000 (used by us, not by them) [is reasonable, but remove for reproduction]
+
+	--outSAMstrandField intronModif (used by them) / --outSAMstrandField intronMotif (used by us)
+	[they have a typo, but we should use theirs for reproducing, then change to the correct]
+
+	--outSAMattrRGline ID::EOC11CTRL (used by us, not by them)
+	[ok to use, but should be filled with meaningful information related to the sample, not with the default taken from a different pipeline]
+
+	--outSAMunmapped Within (used by them) / --outSAMunmapped None (used by us)
+	[depends on whether one wants to archive the fastq files or not, should not have an effect on the results]
+
+	--outSAMmultNmax 1 (used by us, not by them)
+	[makes the output smaller. We usually only keep the best anyways, but I would suggest to remove so all multimappers are output]
+
+

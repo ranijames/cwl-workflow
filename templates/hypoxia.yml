@@ -1,0 +1,6 @@
+sample_input:
+ class: Directory
+ path: OUTPUT_DIR
+outputdir: OUTPUT_DIR
+cancertype: CANCER_TYPE
+sample_id: SAMPLES

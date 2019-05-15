@@ -1,0 +1,6 @@
+sample_input:
+ class: Directory
+ path: /cluster/work/grlab/projects/tumor_profiler/bkRNA_samples/tmp_out_post_poc
+outputdir: /cluster/work/grlab/projects/tumor_profiler/bkRNA_samples/tmp_out_post_poc
+cancertype: SKCM
+sample_id: MR9T5
