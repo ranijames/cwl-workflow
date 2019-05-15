@@ -76,7 +76,7 @@ Before we get started, please customize the `CONFIG` file that contains all the 
                        In order to  find the Labkey prefixes please refer the [labkey](https://tp-labkey.ethz.ch/labkey/Tumor%20Profiler%20-%20Melanoma/login-login.view?returnUrl=%2Flabkey%2FTumor%2520Profiler%2520-%2520Melanoma%2Fproject-begin.view%3F).
 * `[CANCER-TYPE]`   : The cancer type of the samples you want to analyze
 * `[CONDA-ENV]`     : The name of the conda environment you are using, if it differs from `workflow_cwl_tupro_2019` (optional)
-* `[TEMP-OUT]`      : The results are saved here temperrly (CWL-operational folder)
+* `[TEMP-OUT]`      : The results are saved here temporarily  (CWL-operational folder)
 * `[USER]`          : Plese provide your Leomed user name here
 
 
